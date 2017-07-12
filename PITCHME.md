@@ -26,18 +26,12 @@ One of the big benefits is to enable IDEs to provide a richer environment for sp
 // `var` is valid, but don't use it
 let myNumber: number = 3;
 const myNumber: number = 3;
+const myNumber: number = 3.44;
 
 // `null` is valid, but don't use it
 const myNumber: number | undefined = 3;
 // don't abuse of the `|` operator for types
 const myNumber: number | undefined = undefined;
-```
-+++
-## Number (int float)
-
-```ts
-const myNumber: number = 3;
-const myNumber: number = 3.44;
 ```
 +++
 ## String
