@@ -20,31 +20,47 @@ One of the big benefits is to enable IDEs to provide a richer environment for sp
 --- 
 # Types (Value or Primitive)
 +++
-# Number (int float)
+## Number (int float)
+
+```ts
+// `var` is valid, but don't use it
+let myNumber: number = 3;
+const myNumber: number = 3;
+
+// `null` is valid, but don't use it
+const myNumber: number | undefined = 3;
+// don't abuse of the `|` operator for types
+const myNumber: number | undefined = undefined;
+```
++++
+## Number (int float)
 
 ```ts
 const myNumber: number = 3;
+const myNumber: number = 3.44;
 ```
 +++
-# String
+## String
 
 ```ts
 const myString: string = 'toto';
+const myString: string = "toto";
 ```
 +++
-# Boolean
+## Boolean
 ```ts
 const isThisPresentationAwesome: boolean = true;
 ```
 +++
-# Enum
+## Enum
 
 ```ts
+// index starts at `0`, but you can change it
 enum MediaType { Movie, Music, Audiobook, Book = 22 };
 const mediaType: MediaType = MediaType.Book;
 ```
 +++
-# Void
+## Void
 
 ```ts
 function setUserName(name: string): void
@@ -52,18 +68,18 @@ function setUserName(name: string): void
 --- 
 # Types (Reference)
 +++
-# Array
+## Array
 
 ```ts
 const employees: Array<IEmployee> = [];
 employees.push({ name: 'Charle Patenaude' });
 ```
 +++
-# Object (class, interface, module)
+## Object (class, interface, module)
 --- 
 # Functions
 +++
-# Types for parameters
+## Types for parameters & return value
 ```ts
 function setUser(user: { name: string, type: UserType }): boolean {
   try {
@@ -76,7 +92,7 @@ function setUser(user: { name: string, type: UserType }): boolean {
 }
 ```
 +++ 
-# Optionnal and Default Parameter
+## Optionnal and Default Parameter
 ```ts
 function setUser(user: { name: string, type?: UserType }): boolean {
   try {
@@ -89,7 +105,7 @@ function setUser(user: { name: string, type?: UserType }): boolean {
 }
 ```
 +++ 
-# Function Overloads
+## Function Overloads
 ```ts
 class UserService {
   public save(user: IUser): void;
@@ -99,7 +115,7 @@ class UserService {
 }
 ```
 +++ 
-# Fat Arrow functions
+## Fat Arrow functions
 ```ts
 const userService = new UserService();
 userService.save(user, () => {
@@ -107,7 +123,7 @@ userService.save(user, () => {
 });
 ```
 +++ 
-# Rest parameters
+## Rest parameters
 ```ts
 function iTakeItAll(first, second, ...allOthers) {
   console.log(allOthers);
