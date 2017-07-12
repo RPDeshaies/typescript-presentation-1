@@ -130,40 +130,44 @@ iTakeItAll('foo', 'bar', 'bas', 'qux'); // ['bas','qux']
 +++
 ## Declaration
 ```ts
-class Employee {}
-const employee = new Employee();
+class Person {}
+const person = new Person();
 ```
 +++
 ## Constructor
 ```ts
-class Employee {
-  constructor(name:string, employeeType: EmployeeType) {
+class Person {
+  constructor(name:string, personType: PersonType) {
     // do stuff...
   }
 }
-const employee = new Employee(name, employeeType);
+const person = new Person(name, personType);
 ```
 +++
 ## Constructor shortcuts...
 ```ts
-class Employee {
+class Person {
   constructor(public name:string, 
-    public employeeType: EmployeeType, 
     private socialSecurityNumber: number) {
   }
 }
-const employee = new Employee(name, employeeType, socialSecurityNumber);
+const person = new Person(name, socialSecurityNumber);
 ```
 +++
 ## Properties
 ```ts
-class Employee {
+class Person {
   public name: string; // undefined
-  public employeeType: EmployeeType;
   private socialSecurityNumber: number;
+  private readonly PERSON_NAME_MAX_LENGTH: number = 50;
+  private readonly HAVE_SUPER_POWER: boolean = false;
 
   constructor(name:string) {
     this.name = name;
+
+    if(name === 'Spiderman') {
+      this.HAVE_SUPER_POWER = true;
+    }
   }
 }
 ```
@@ -193,7 +197,7 @@ class Animal {
 }
 ```
 +++
-## Functions (procted)
+## Functions (protected)
 ```ts
 class Animal {
   constructor(public name:string) {
@@ -211,4 +215,14 @@ class Tiger extends Animal{
   }
 }
 ```
-+++
+---
+# Interface
+---
+# Inheritance
+---
+# Generics
+---
+# Async/Await
+---
+# Thanks you !
+### Questions ?
