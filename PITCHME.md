@@ -75,7 +75,7 @@ employees.push({ name: 'Charle Patenaude' });
 +++
 ## Types for parameters & return value
 ```ts
-function setUser(user: { name: string, type: UserType }): boolean {
+function setUser(user: { name: string, userType: UserType }): boolean {
   try {
     //call api...
     return true;
@@ -88,7 +88,7 @@ function setUser(user: { name: string, type: UserType }): boolean {
 +++ 
 ## Optionnal and Default Parameter
 ```ts
-function setUser(user: { name: string, type?: UserType }): boolean {
+function setUser(user: { name: string, userType?: UserType }): boolean {
   try {
     //call api...
     return true;
@@ -125,4 +125,90 @@ function iTakeItAll(first, second, ...allOthers) {
 iTakeItAll('foo', 'bar'); // []
 iTakeItAll('foo', 'bar', 'bas', 'qux'); // ['bas','qux']
 ```
+---
+# Class
++++
+## Declaration
+```ts
+class Employee {}
+const employee = new Employee();
+```
++++
+## Constructor
+```ts
+class Employee {
+  constructor(name:string, employeeType: EmployeeType) {
+    // do stuff...
+  }
+}
+const employee = new Employee(name, employeeType);
+```
++++
+## Constructor shortcuts...
+```ts
+class Employee {
+  constructor(public name:string, 
+    public employeeType: EmployeeType, 
+    private socialSecurityNumber: number) {
+  }
+}
+const employee = new Employee(name, employeeType, socialSecurityNumber);
+```
++++
+## Properties
+```ts
+class Employee {
+  public name: string; // undefined
+  public employeeType: EmployeeType;
+  private socialSecurityNumber: number;
 
+  constructor(name:string) {
+    this.name = name;
+  }
+}
+```
++++
+## Functions (public)
+```ts
+class Animal {
+  constructor(public name:string) {
+  }
+  
+  public sayHello(): void {
+    console.log(`Wubba Lubba Dub Dub ${this.name}`);
+  }
+}
+```
++++
+## Functions (private)
+```ts
+class Animal {
+  constructor(public name:string) {
+    this.sleep();
+  }
+  
+  private sleep(): void {
+    // ...
+  }
+}
+```
++++
+## Functions (procted)
+```ts
+class Animal {
+  constructor(public name:string) {
+  }
+  
+  protected speak(): void {
+    console.log(`Wubba Lubba Dub Dub ${this.name}`);
+  }
+}
+
+class Tiger extends Animal{
+  constructor(public name: string, public color: Color) {
+    super(name); // mandatory
+    this.speak();
+  }
+}
+```
++++
