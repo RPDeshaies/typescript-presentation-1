@@ -305,7 +305,7 @@ class Duck implements IAnimal{
     // not important
   }
 
-  // Hey ! I know how a tiger moves !
+  // Hey ! I know how a duck moves !
   public move(): void{
     // waddle waddle
   }
@@ -316,8 +316,85 @@ class Duck implements IAnimal{
 ![](https://media.giphy.com/media/cLYaf1ExHsxX2/giphy.gif)
 ---
 # Generics
++++
+Being able to create a component that can work over a variety of types rather than a single one.
++++
+## Use them in functions
+```ts
+function isArrayEmpty<T>(array: Array<T>): boolean {
+  if (array.length === 0) {
+    return true;
+  }
+  return false;
+}
+```
++++
+## Use them in class
+```ts
+class HashMap<T>{
+  private hash: any;
+  constructor() {
+    this.hash = {};
+  }
+
+  public get(key: string): T {
+    return this.hash[key] as T;
+  }
+
+  public set(key: string, value: T) {
+    this.hash[key] = value;
+  }
+}
+
+const foo = new HashMap<number>();
+foo.set('key1', 25); // valid
+foo.set('key1', '25'); // invalid !
+console.log(foo.get('key1')) // 25
+```
++++
+## You can also use contraints
+
+```ts
+class HashMap<T extends Animal> {}
+```
 ---
 # Async/Await
++++
+## Details
+
+You wait for function using the `await` keyword
+
+You can only wait for a function if : 
+
+* That function is `async`
+* You are `async`
+* That function is returning a `Promise<T>`
+
+You don't need to use the `.then` or `.catch` syntax since it will create a `callback hell`
++++
+Example : 
+
+```ts
+class AnimalService {
+  public static async getAnimalDetail(name: string): Promise<any> {
+    //return httpClient.get('/some-url', { name: name });
+
+    return new Promise((resolve) => {
+      resolve({
+        name: 'Robert',
+        color: 'white'
+      })
+    });
+  }
+}
+
+async function doStuff(): Promise<void> {
+  const details = await AnimalService.getAnimalDetail('Robert');
+  console.log(details);
+}
+
+```
+
 ---
 # Thank you !
 ### Questions ?
