@@ -1,5 +1,6 @@
 ---
 # TypeScript
+### https://gitpitch.com/RPDeshaies/typescript-presentation-1
 ---
 # Au menu...
 
@@ -217,12 +218,54 @@ class Tiger extends Animal{
 ```
 ---
 # Interface
++++
+### Usefull for objects coming from the server or when you want to valid very basic types
++++
+## Syntax
+```ts
+interface IAnimal {
+  name?: string;
+  color?: string;
+  speak?: () => string;
+}
+
+let tiger: IAnimal = {}; // valid because `?`
+let tiger: IAnimal = {
+  name: 'Bouyah',
+  color: 'white',
+  speak: () => {
+    console.log('I love bananas');
+  },
+};
+tiger.name // = 'Bouyah', etc...
+let tiger: IAnimal = new IAnimal(); // invalid ! not a class.
+```
 ---
 # Inheritance
++++
+## There's 2 types : extends vs implements
++++
+## Extends
+A `class` **`extends`** another `class`.
+
+* It needs to call the parent's constructor
+* It needs to implement all of its `abstract` functions if the parent class is itself `abstract`
+* You can only `extend` ONE class
++++
+
+![](http://www.programmerinterview.com/images/Diamond_inheritance.png)
++++
+## Implements
++++
+
+A `class` **`implements`** one-to-many `interface`
+
+* It needs to implement all of its `interfaces` methods and properties
+
 ---
 # Generics
 ---
 # Async/Await
 ---
-# Thanks you !
+# Thank you !
 ### Questions ?
