@@ -253,8 +253,36 @@ A `class` **`extends`** another `class`.
 * It needs to implement all of its `abstract` functions if the parent class is itself `abstract`
 * You can only `extend` ONE class
 +++
-
 ![](http://www.programmerinterview.com/images/Diamond_inheritance.png)
++++
+```ts
+abstract class Animal {
+  constructor(public name:string) {}
+  
+  protected speak(): void {
+    console.log(`Wubba Lubba Dub Dub ${this.name}`);
+  }
+
+  // I don't know how to move
+  abstract public move(): void;
+}
+
+class Tiger extends Animal{
+  constructor(public name: string, public color: Color) {
+    super(name); // mandatory
+    this.speak();
+  }
+
+  // Hey ! I know how a tiger moves !
+  public move(): void{
+    // do stuff... like walking !
+  }
+}
+```
++++
+
+![](https://media.giphy.com/media/GWx7HFtKBAV3O/giphy.gif)
+
 +++
 ## Implements
 +++
@@ -262,7 +290,30 @@ A `class` **`extends`** another `class`.
 A `class` **`implements`** one-to-many `interface`
 
 * It needs to implement all of its `interfaces` methods and properties
+* In the case of implementing an interface, it is basically the same thing as `extending`  a `fully abstract class`
++++
+```ts
+interface IAnimal {
+  // I don't know how to move
+  // no need for the `abstract` keyword
+  // everything is public in interfaces !
+  move(): void;
+}
 
+class Duck implements IAnimal{
+  constructor(public name: string, public color: Color) {
+    // not important
+  }
+
+  // Hey ! I know how a tiger moves !
+  public move(): void{
+    // waddle waddle
+  }
+}
+```
++++
+
+![](https://media.giphy.com/media/cLYaf1ExHsxX2/giphy.gif)
 ---
 # Generics
 ---
