@@ -516,6 +516,18 @@ function doStuff() {
 }
 ```
 +++
+## Waiting for multiple calls at the same time
+```ts
+async function doStuff(): Promise<void> {
+	const details = await Promise.all(
+    AnimalService.getAnimalDetail('Robert')
+    AnimalService.getAnimalDetail('Michel')
+    AnimalService.getAnimalDetail('Richard')
+  );
+  console.log(details) // [response1, response2, response 3]
+}
+```
++++
 ---
 # Thank you !
 ### Questions ?
