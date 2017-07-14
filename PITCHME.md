@@ -1,6 +1,7 @@
 ---
 # TypeScript
-### https://gitpitch.com/RPDeshaies/typescript-presentation-1
+
+https://gitpitch.com/RPDeshaies/typescript-presentation-1
 ---
 # Au menu...
 
